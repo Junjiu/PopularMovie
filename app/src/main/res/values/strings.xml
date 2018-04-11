@@ -6,5 +6,6 @@
     <string name="vote_average">"Vote_average</string>
     <string name="sortByRate">"sortByRate"</string>
     <string name="sortByPopular">sortByPopular</string>
-    <string name="favorite">"Add to my favorite"</string>
+    <string name="Addfavorite">"Add to my favorite"</string>
+    <string name="favorite">"Favorite"</string>
 </resources>

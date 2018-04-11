@@ -8,13 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"/>
-
+    <Button
+        android:layout_below="@+id/detail_post_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Addfavorite"
+        android:id="@+id/addFavorite"/>
     <LinearLayout
         android:id="@+id/detail_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/detail_post_iv">
+        android:layout_below="@+id/addFavorite">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

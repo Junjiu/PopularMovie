@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import wenjunjie.popularmoive.Utility.Favorite;
 import wenjunjie.popularmoive.Utility.JSONHandler;
 import wenjunjie.popularmoive.Utility.Network;
 import wenjunjie.popularmoive.Utility.UrlBuilder;
@@ -60,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
             UrlBuilder.sortByRate();
             getData();
         }
+        if(itemId == R.id.favorite){
+            JSONObject[] favorite = new JSONObject[Favorite.favorite.size()];
+            for(int i = 0; i < favorite.length; ++i){
+                favorite[i] = Favorite.favorite.get(i);
+            }
+            movieAdapter.changeData(favorite);
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -86,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         intentStartDetailActivity.putExtra(DetailsActivity.PLOT_KEY,information);
         intentStartDetailActivity.putExtra(DetailsActivity.VOTE_KEY,vote);
         intentStartDetailActivity.putExtra(DetailsActivity.RELEASE_KEY, releaseDate);
+        intentStartDetailActivity.putExtra(DetailsActivity.JSON_KEY, oneMovieData.toString());
         startActivity(intentStartDetailActivity);
 
     }

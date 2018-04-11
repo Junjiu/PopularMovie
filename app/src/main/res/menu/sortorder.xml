@@ -8,4 +8,8 @@
         android:title="@string/sortByRate"
         android:id="@+id/sortByRate"
         app:showAsAction="never"/>
+    <item
+        android:title="@string/favorite"
+        android:id="@+id/favorite"
+        app:showAsAction="never"/>
 </menu>

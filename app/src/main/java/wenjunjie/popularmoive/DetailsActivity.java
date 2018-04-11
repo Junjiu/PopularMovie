@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONObject;
+
+import wenjunjie.popularmoive.Utility.Favorite;
+
 public class DetailsActivity extends AppCompatActivity {
 
     public static final String POST_URL_KEY = "POST_URL_KEY";
@@ -17,11 +21,14 @@ public class DetailsActivity extends AppCompatActivity {
     public static final String PLOT_KEY = "INFORMATION_KEY";
     public static final String RELEASE_KEY = "RELEASE_KEY";
     public static final String VOTE_KEY = "VOTE_KEY";
+    public static final String JSON_KEY = "JSON_KEY";
     ImageView post;
     TextView titleTv;
     TextView plotTv;
     TextView releaseDataTV;
     TextView voteTv;
+    Button addFavoriteBt;
+    JSONObject JSONmovie;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
         plotTv = (TextView)findViewById(R.id.plot_synopsis);
         releaseDataTV = (TextView)findViewById(R.id.release_data);
         voteTv = (TextView)findViewById(R.id.vote_average);
+        addFavoriteBt = (Button)findViewById(R.id.addFavorite);
         Intent intent = getIntent();
         if(intent.hasExtra(POST_URL_KEY)){
             String postUrl = intent.getStringExtra(POST_URL_KEY);
@@ -52,5 +60,19 @@ public class DetailsActivity extends AppCompatActivity {
             String information = intent.getStringExtra(PLOT_KEY);
             plotTv.setText(information);
         }
+        if(intent.hasExtra(JSON_KEY)){
+            String movieJSONString = intent.getStringExtra(JSON_KEY);
+            try{
+                JSONmovie = new JSONObject(movieJSONString);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        addFavoriteBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Favorite.favorite.add(JSONmovie);
+            }
+        });
     }
 }
