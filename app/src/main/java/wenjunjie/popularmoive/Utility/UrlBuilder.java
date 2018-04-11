@@ -21,7 +21,8 @@ public  class UrlBuilder {
     private static final String DEFAULT_SIZE = SIZE_185;
 
 
-    private static final String apikey = "20a3af857e3316b985681a83e41adc07";
+    private static final String apikey = "CHANGE TO YOUR KEY";
+    //TODO(1) Change the apikey by your api
 
     public static void sortByPopular(){
         SORT_ORDER = POPULAR_PATH;

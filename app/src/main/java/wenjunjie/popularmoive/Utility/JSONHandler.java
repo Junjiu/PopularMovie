@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 public  class JSONHandler {
     public static JSONObject[] handlerMoviesData(String inputData){
-        //TODO(2) Convert moviesData to JSONObject
+
         JSONObject[] result =  new JSONObject[20];
         try{
             JSONObject moviesData = new JSONObject(inputData);
