@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PopularMoive</string>
+    <string name="title">Title</string>
+    <string name="plot_synopsis">plot_synopsis</string>
+    <string name="release_data">"Release date"</string>
+    <string name="vote_average">"Vote_average</string>
+    <string name="sortByRate">"sortByRate"</string>
+    <string name="sortByPopular">sortByPopular</string>
+    <string name="favorite">"Add to my favorite"</string>
 </resources>

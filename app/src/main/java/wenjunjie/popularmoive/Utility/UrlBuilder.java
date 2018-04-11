@@ -10,8 +10,8 @@ public  class UrlBuilder {
     private static final String APIKEY = "api_key";
     private static final String BASE_URL = "http://api.themoviedb.org/3/movie";
     private static final String POPULAR_PATH ="popular";
-    private static final String TOP_RATE_PATH = " top_rated";
-    private static final String SORT_ORDER = POPULAR_PATH;
+    private static final String TOP_RATE_PATH = "top_rated";
+    private static  String SORT_ORDER = POPULAR_PATH;
 
 
 
@@ -23,6 +23,13 @@ public  class UrlBuilder {
 
     private static final String apikey = "20a3af857e3316b985681a83e41adc07";
 
+    public static void sortByPopular(){
+        SORT_ORDER = POPULAR_PATH;
+    }
+
+    public static void sortByRate(){
+        SORT_ORDER = TOP_RATE_PATH;
+    }
     public static String getMoviesDataURL(){
         Uri uri = Uri.parse(BASE_URL).buildUpon()
                 .appendEncodedPath(SORT_ORDER)

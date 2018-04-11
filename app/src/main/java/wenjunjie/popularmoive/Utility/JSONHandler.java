@@ -1,5 +1,8 @@
 package wenjunjie.popularmoive.Utility;
 
+import android.util.Log;
+import android.widget.LinearLayout;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 

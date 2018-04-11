@@ -3,6 +3,8 @@ package wenjunjie.popularmoive;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,17 +14,23 @@ public class DetailsActivity extends AppCompatActivity {
 
     public static final String POST_URL_KEY = "POST_URL_KEY";
     public static final String TITLE_KEY = "TITLE_KEY";
-    public static final String INFORMATION_KEY = "INFORMATION_KEY";
+    public static final String PLOT_KEY = "INFORMATION_KEY";
+    public static final String RELEASE_KEY = "RELEASE_KEY";
+    public static final String VOTE_KEY = "VOTE_KEY";
     ImageView post;
     TextView titleTv;
-    TextView informationTv;
+    TextView plotTv;
+    TextView releaseDataTV;
+    TextView voteTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         post = (ImageView)findViewById(R.id.detail_post_iv);
         titleTv = (TextView)findViewById(R.id.detail_title_tv);
-        informationTv = (TextView)findViewById(R.id.detail_information_tv);
+        plotTv = (TextView)findViewById(R.id.plot_synopsis);
+        releaseDataTV = (TextView)findViewById(R.id.release_data);
+        voteTv = (TextView)findViewById(R.id.vote_average);
         Intent intent = getIntent();
         if(intent.hasExtra(POST_URL_KEY)){
             String postUrl = intent.getStringExtra(POST_URL_KEY);
@@ -32,9 +40,17 @@ public class DetailsActivity extends AppCompatActivity {
             String title = intent.getStringExtra(TITLE_KEY);
             titleTv.setText(title);
         }
-        if(intent.hasExtra(INFORMATION_KEY)){
-            String information = intent.getStringExtra(INFORMATION_KEY);
-            informationTv.setText(information);
+        if(intent.hasExtra(RELEASE_KEY)){
+            String releaseDate = intent.getStringExtra(RELEASE_KEY);
+            releaseDataTV.setText(releaseDate);
+        }
+        if(intent.hasExtra(VOTE_KEY)){
+            String vote = intent.getStringExtra(VOTE_KEY);
+            voteTv.setText(vote);
+        }
+        if(intent.hasExtra(PLOT_KEY)){
+            String information = intent.getStringExtra(PLOT_KEY);
+            plotTv.setText(information);
         }
     }
 }
