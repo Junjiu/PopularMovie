@@ -6,6 +6,8 @@ import android.util.Log;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.json.JSONObject;
 
+import java.security.acl.LastOwnerException;
+
 public  class UrlBuilder {
     private static final String APIKEY = "api_key";
     private static final String BASE_URL = "http://api.themoviedb.org/3/movie";
@@ -21,7 +23,7 @@ public  class UrlBuilder {
     private static final String DEFAULT_SIZE = SIZE_185;
 
 
-    private static final String apikey = "Change to your own api key";
+    private static final String apikey = "Change to your own apiKey";
     //TODO(1) Change the apikey by your api
 
     public static void sortByPopular(){
@@ -50,11 +52,12 @@ public  class UrlBuilder {
         }
         if(ImagePath != null){
             uri = Uri.parse(BASE_POST_URL).buildUpon()
-                    .appendEncodedPath(DEFAULT_SIZE)
+                    .appendEncodedPath(SIZE_185)
                     .appendEncodedPath(ImagePath)
                     .build();
         }
         if (uri == null ) return null;
+        Log.d("url", uri.toString());
         return uri.toString();
 
     }
